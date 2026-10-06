@@ -119,4 +119,4 @@ README.md
 - Input validation is minimal: a missing column, a non-numeric coverage value or a sample name shorter than two characters will stop the script with a Python error rather than a friendly message.
 - The thresholds (95 % coverage, 10 % failure rate) are constants at the top of the script, not command-line options.
 - Notification is limited to stderr, the exit code and the report file. Email or Slack sending could be added.
-- Test coverage could be extended to the alert logic, the exit code and the report file contents.# QC_Check_script
+- Test coverage could be extended to the alert logic, the exit code and the report file contents.
