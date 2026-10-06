@@ -1,0 +1,29 @@
+ANSWERS
+
+Ans1. The working version of the script is possible. However, due to time constarint, the part I could only do in a limited way was testing. I added a small set of simple tests with pytest. With more time, I would extend the tests to cover more cases and edge cases in the input data.
+
+Ans2. Workflow -
+(i). Quality Control and Pre-processing : Running tools such as fastqc (QC check on reads)/MultiQC, fastp/Trimmomatic (adapter trimming), etc.
+(ii). Alignment tools and Quantification : Using STAR to GRCh38 and then featureCounts.
+(iii). Sample level QC : PCA on variance-stabilized counts to check clustering by disease, batch, sex or age.
+(iv). Running differential expression tools - Such as DESeq2. Filter low-count genes first.
+(v). Compare each disease against controls, then intersect the DE genes with an UpSet plot, keeping only genes that change in the same direction.
+(vi). Enrichment using GSEA and databases such as KEGG.
+
+Limitations - 
+No healthy controls are mentioned. 
+n=6 per group gives low power, thus giving unstable results and inflated effect sizes.
+Enrichment results depends heavily on the background set.
+No validation cohort, so there is a need of public data to confirm.
+
+c) The heatmap suggests one group differs from the other two, rather than a signature common to all three diseases. A common signature would show the same genes changing in the same direction in all groups, so I'd test that directly, for example by comparing each disease against controls and intersecting the results. With n=6 and some heterogeneous samples, the results are exploratory and need validation by qPCR or a public dataset.
+Since the genes were selected because they differ between groups, the clean separation is expected. I'd confirm by running an unsupervised PCA.
+
+Ans3. Firstly, I would ask the fourth user with what they need and required from my side. I would like to understand first if the reviewer's want any specific results or data and I will then check if I have to run any pipelines from starting or work with the existing results. I will also ask the fourth user for deadlines. 
+After talking with the user, I would analyze my parallel projects and what stage they are at right now. If the pipeline is standardized such as DE analysis, it will be easier to parallely manage this project with the fourth user's project.
+
+Ans4. Bioinformatics is a field where no one has the complete knowledge for everything. It constantly requires upskilling and trying and optimizing different methods. Firstly, I would like to understand from the user what output do they expect, what they want to analyze, and mainly undersatnding the biological question. I would understand the documentation thoroughly along with its literature and if its a git repository or a nextflow pipeline, i would also take help from the slack channels or check the previous issues on git repository.
+There are often common issues and problems that everyone runs into while trying a new analysis, so I would try to find these issues that someone might have faced before and understand their solutions. 
+
+Ans5. Firstly, I would understand where the mistake happened and why. It's important that the mistake is not repeated again and it should be properly documented. Then, I would contact the PI immediately and I would be upfront about the mistake. I would check if the mistake has trickled through the analysis or any figures. 
+I would re-run the analysis and check the difference in the results. The difference could be due to difference in software versions, different packages used, different tools and parameters, etc. but it's important to understand how and where it happened and what it changed. It's important to look at the results and see what files have been affected due to this. 
